@@ -13,7 +13,30 @@ calm-design의 4가지 모드 중 가장 기본. 사용자 의도만 받아서 9
 >
 > "3가지 안", "여러 옵션" 등이 동시 등장하면 → Mode D(Multi-Variant) 우선
 
-## 진입 직후 9단계 워크플로우
+## 진입 직후 10단계 워크플로우
+
+### Step 0. CONTEXT.md 로드 (선택)
+
+`.calm-design/CONTEXT.md` 파일 존재 여부 확인:
+
+```
+IF .calm-design/CONTEXT.md 존재:
+  1. design_mappings 섹션 로드
+  2. suggested_dials → Step 2 다이얼 기본값으로 사용
+  3. anti_patterns.project_specific → Step 5 Section 9에 자동 추가
+  4. copy_mapping → Step 4 분위기 증폭에 반영
+  5. hero, cta 설정 → Step 3 페이지 구조에 반영
+  
+  출력에 "📋 CONTEXT.md 반영됨" 표시
+  
+ELSE:
+  Step 1로 진행 (기존 흐름)
+```
+
+**CONTEXT.md 활용 시 이점**:
+- 다이얼 자동 추론 정확도 향상
+- 프로젝트 고유 anti-patterns 자동 적용
+- 타겟/감정에 맞는 색상/모션 자동 매핑
 
 ### Step 1. 사용자 입력 분석 (의도 분류기)
 

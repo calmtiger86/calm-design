@@ -15,7 +15,15 @@ calm-design의 4가지 모드 중 세 번째. 사용자가 "토스 스타일", "
 
 > 다른 모드 키워드 충돌 시 우선순위: D > **C** > B > A
 
-## 9단계 워크플로우
+## 10단계 워크플로우
+
+### Step 0. CONTEXT.md 로드 (선택)
+
+`.calm-design/CONTEXT.md` 존재 시 로드:
+- `target_persona` → 레퍼런스 매칭 가중치에 반영 (예: 시니어 타겟이면 복잡한 레퍼런스 감점)
+- `desired_emotion` → 브랜드 톤 필터링 (예: "신뢰" → 토스/카카오 가산점)
+- `anti_patterns.project_specific` → 생성 코드의 Section 9에 자동 추가
+- CONTEXT.md 활용 시 "📋 CONTEXT.md 반영됨" 표시
 
 ### Step 1. 레퍼런스 의도 추출
 

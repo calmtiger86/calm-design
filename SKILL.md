@@ -8,7 +8,7 @@ description: AI가 만든 티 안 나는 차분한 프리미엄 디자인을 DES
 차분하고 정제된 디자인을 만든다. 네온·자주색 그래디언트·Inter 폰트·3-칸 카드 같은 "AI가 만든 티"를 적극 차단하고, 한국어 환경에서는 Pretendard를 강제하며, 만든 결과를 자기가 다시 보고 고친다.
 
 ## 1. 3-라인 동작 요약
-1. 사용자 의도 → 4-다이얼 추론 + 4모드 중 하나로 라우팅
+1. 사용자 의도 → 4-다이얼 추론 + 5모드 중 하나로 라우팅 (Mode E 인터뷰 우선)
 2. 9-섹션 DESIGN.md 생성 → 출력 엔진(HTML / React+shadcn / preview / Figma)으로 변환
 3. 시각적 셀프-크리틱 루프 → Pre-Flight 21항목 통과까지 자동 재생성 (최대 3회)
 
@@ -28,12 +28,13 @@ description: AI가 만든 티 안 나는 차분한 프리미엄 디자인을 DES
 
 | 의도 키워드 | 모드 | 추가 로드 |
 |---|---|---|
+| "인터뷰 먼저", "컨텍스트부터", "제대로 만들어줘" | **E. Interview** | `modes/interview.md` + `references/context-schema.md` |
 | "디자인 만들어줘", "랜딩", "UI 짜줘" | **A. Generate** | `modes/generate.md` |
 | "업그레이드", "다듬어줘", "고쳐줘" + 기존 코드 첨부 | **B. Upgrade** | `modes/upgrade.md` + `self-critique-loop.md` |
 | "토스 스타일", "Linear 처럼", "Vercel 풍" | **C. Match-Reference** | + `reference-library/{matched}/DESIGN.md` (3개 후보) |
 | "3가지 안", "여러 옵션", "다양하게" | **D. Multi-Variant** | `modes/multi-variant.md` + `creative-arsenal.md` + `color-system.md` + `motion-system.md` |
 
-여러 키워드 동시 등장 시 우선순위: **D > C > B > A**.
+여러 키워드 동시 등장 시 우선순위: **E > D > C > B > A**. (Mode E는 인터뷰 완료 후 다른 모드로 전환)
 
 ## 4. 출력 엔진 선택
 
@@ -68,17 +69,26 @@ description: AI가 만든 티 안 나는 차분한 프리미엄 디자인을 DES
 4. ❌ 3-column equal cards → ✅ Bento Grid, 2-column Zig-Zag, 비대칭 그리드, Masonry
 5. ❌ `h-screen` (iOS 100vh 버그) → ✅ `min-h-[100dvh]`
 
-## 8. 진입 직후 4단계 (필수 순서, 절대 건너뛰지 마라)
+## 8. 진입 직후 5단계 (필수 순서, 절대 건너뛰지 마라)
 
-0. **사용자 오버라이드 자동 로드** — 프로젝트 루트에 `.calm-design/keyword-overrides.md` 또는 `.calm-design/anti-patterns.md` 있으면 우선 로드해 기본값보다 우선 적용
-1. **다이얼 추론** — 입력에서 4-다이얼 결정 (2장 자연어 매핑)
+0. **CONTEXT.md 로드 (선택)** — `.calm-design/CONTEXT.md` 있으면 로드. `design_mappings` 섹션을 다이얼 초기값으로, `anti_patterns.project_specific`을 Section 9에 자동 추가. 없으면 건너뛰고 1단계로.
+0-1. **사용자 오버라이드 자동 로드** — 프로젝트 루트에 `.calm-design/keyword-overrides.md` 또는 `.calm-design/anti-patterns.md` 있으면 우선 로드해 기본값보다 우선 적용
+1. **다이얼 추론** — 입력에서 4-다이얼 결정 (2장 자연어 매핑). CONTEXT.md의 `suggested_dials`가 있으면 그것을 기본값으로 사용
 2. **모드 결정 + references 로드** — 3장 표
 3. **출력 엔진 결정 + 정책 로드** — 4장 표
 4. **9-섹션 DESIGN.md 생성 → 출력 엔진 변환 → 셀프-크리틱 루프 자동 트리거** (DESIGN.md가 1차 산출물, 코드는 파생물 — 절대 코드부터 출력하지 말 것)
 
-## 9. 사용자에게 항상 제공할 산출물 4가지
+## 9. 사용자에게 항상 제공할 산출물
 
+**Mode E (Interview) 완료 시**:
+1. **CONTEXT.md** — `.calm-design/CONTEXT.md`로 저장
+2. **인터뷰 요약 테이블** (타겟/감정/기억점/차별점/목표)
+3. **다음 단계 안내** (어떤 모드로 진행할지)
+
+**Mode A-D 완료 시 (4가지)**:
 1. **DESIGN.md** (9-섹션) — `.calm-design/DESIGN.md`로 저장
 2. **선택한 출력물** (HTML 또는 React 코드)
 3. **셀프-크리틱 리포트** (Pre-Flight 21항목 ✅/❌ + 재생성 횟수)
 4. **다이얼+모드 한 줄 요약** ("VARIANCE=7, MOTION=6, DENSITY=4, LANGUAGE=ko, Mode A")
+
+CONTEXT.md가 활용된 경우 리포트에 "📋 CONTEXT.md 반영됨" 표시.

@@ -121,9 +121,11 @@ node scripts/render-preview.js \
 
 **일반 사용자는 외부 스크립트나 API 키 없이도 인-스킬 경로로 풀 동작.** scripts/self-critique.py는 CI·자동 검증·배치 처리 등 사용자 개입 없이 돌아가야 하는 시나리오 전용.
 
-### 3.1 5가지 시각적 자기 점검 질문 (모든 경로 공통)
+### 3.1 8가지 시각적 자기 점검 질문 (모든 경로 공통)
 
-캡처한 PNG(또는 코드 텍스트)를 입력으로 5가지 자기 점검 질문 답변:
+캡처한 PNG(또는 코드 텍스트)를 입력으로 8가지 자기 점검 질문 답변:
+
+**기본 검증 (Q1-Q5)**:
 
 ```
 Q1. 이 화면은 "AI가 만든 티"가 나는가?
@@ -143,6 +145,41 @@ Q5. 다이얼 값(VARIANCE/MOTION/DENSITY)이 시각적으로 반영됐는가?
     구체 시그널: VARIANCE=7인데 모두 centered면 실패, DENSITY=4인데 데이터 가득이면 실패
 ```
 
+**Memorability 검증 (Q6-Q8, Phase 1.1 추가)**:
+
+```
+Q6. 1주 후에도 기억할 요소가 있는가? (Memorability, 0-10점)
+    평가 기준:
+    - 9-10: 즉시 기억나는 시그니처 요소 (색상, 레이아웃, 모션)
+    - 7-8: 기억에 남는 요소 1-2개 존재
+    - 5-6: 깔끔하지만 특별히 기억나는 건 없음
+    - 3-4: 어디서 본 듯한 범용 디자인
+    - 1-2: AI 템플릿 느낌, 즉시 잊힘
+    구체 시그널 예시: 토스 블루, 당근 오렌지, Linear 퍼플 같은 색상 시그니처 / 
+    독특한 Hero 레이아웃 / 기억에 남는 숫자·카피 / 인상적인 마이크로 인터랙션
+
+Q7. 경쟁 디자인과 구별되는 시그니처가 있는가? (Differentiation, 0-10점)
+    평가 기준:
+    - 9-10: 같은 카테고리 서비스와 즉시 구별됨
+    - 7-8: 차별화 요소 명확 (색상, 톤, 레이아웃 중 2개 이상)
+    - 5-6: 업계 표준 범위 내, 약간의 차별화
+    - 3-4: 경쟁사와 유사한 느낌
+    - 1-2: 경쟁사 디자인을 복붙한 것 같음
+    참조: CONTEXT.md의 competitor_avoidance 필드가 있으면 해당 요소가 반영되었는지 확인
+
+Q8. 사용자가 "와" 할 순간이 있는가? (Delight Moment, 0-10점)
+    평가 기준:
+    - 9-10: 여러 "와" 순간 (Hero 애니메이션, 마이크로 인터랙션, 디테일)
+    - 7-8: 1-2개의 인상적인 순간 존재
+    - 5-6: 기능적으로 완벽하지만 감정 자극 부족
+    - 3-4: 지루한 디자인
+    - 1-2: 전혀 인상적이지 않음
+    구체 시그널 예시: Hero 진입 시 애니메이션 / 버튼 호버 시 기분 좋은 피드백 /
+    스크롤 시 예상치 못한 시각 효과 / 인상적인 차트·데이터 시각화
+```
+
+**Memorability 통과 기준**: Q6-Q8 모두 ≥7점 (총 21점 이상 / 30점 만점)
+
 ### 3.2 Vision 응답 포맷 (JSON 강제)
 
 ```json
@@ -157,11 +194,40 @@ Q5. 다이얼 값(VARIANCE/MOTION/DENSITY)이 시각적으로 반영됐는가?
     "delta": -3,
     "needs_correction": true
   },
-  "overall_assessment": "VARIANCE 미달, AI tells 2개 검출"
+  "memorability": {
+    "q6_memorability_score": 7,
+    "q6_signature_elements": ["단일 에메랄드 액센트", "비대칭 Hero 레이아웃"],
+    "q7_differentiation_score": 8,
+    "q7_differentiators": ["경쟁사 대비 차분한 톤", "숫자 강조 Hero"],
+    "q8_delight_score": 6,
+    "q8_delight_moments": ["버튼 호버 스프링 애니메이션"],
+    "total_memorability": 21,
+    "memorability_passed": true
+  },
+  "overall_assessment": "VARIANCE 미달, AI tells 2개 검출. Memorability 21/30 통과."
 }
 ```
 
 이 JSON이 [4]단계로 전달.
+
+### 3.3 Memorability 실패 시 재생성 가이드
+
+Q6-Q8 중 하나라도 <7점이면 핀포인트 재생성 프롬프트에 포함:
+
+```
+❌ Memorability 미달 (Q6: 5점 — 기억할 요소 부족)
+
+개선 지시:
+1. 시각적 시그니처 추가:
+   - 히어로에 독특한 레이아웃 패턴 (Split Hero, Overlapping 등)
+   - 액센트 색상을 더 인상적으로 활용 (Hero CTA, 섹션 구분선)
+   - 숫자/통계를 큰 타이포로 강조
+   
+2. Delight 순간 추가:
+   - Hero 진입 애니메이션 (Fade-up + Scale)
+   - CTA 버튼 호버 시 스프링 피드백
+   - 스크롤 시 섹션 진입 애니메이션 (stagger)
+```
 
 ---
 
