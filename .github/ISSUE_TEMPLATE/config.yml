@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 질문하기 (Discussions)
+    url: https://github.com/calmtiger86/calm-design/discussions
+    about: 버그나 기능 요청이 아닌 일반적인 질문은 Discussions에서 해주세요.
+  - name: 사용 예시 공유
+    url: https://github.com/calmtiger86/calm-design/discussions/categories/show-and-tell
+    about: calm-design으로 만든 결과물을 공유해주세요!

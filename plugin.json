@@ -1,0 +1,51 @@
+{
+  "name": "calm-design",
+  "version": "1.0.0",
+  "description": "AI가 만든 티 안 나는 프리미엄 디자인. 50+ 안티-슬롭 자동 차단, 33개 브랜드 레퍼런스, 한국어 1순위.",
+  "description_en": "Premium designs that don't look AI-generated. 50+ anti-slop patterns blocked, 33 brand references, Korean-first.",
+  "author": {
+    "name": "calmtiger",
+    "url": "https://threads.net/@calmtiger_"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calmtiger86/calm-design"
+  },
+  "license": "MIT",
+  "keywords": [
+    "design",
+    "ui",
+    "ux",
+    "korean",
+    "pretendard",
+    "anti-slop",
+    "tailwind",
+    "react",
+    "html",
+    "figma"
+  ],
+  "categories": [
+    "design",
+    "development",
+    "productivity"
+  ],
+  "skills": [
+    {
+      "name": "calm-design",
+      "path": "SKILL.md",
+      "description": "차분하고 정제된 디자인 생성"
+    }
+  ],
+  "triggers": [
+    "디자인 만들어줘",
+    "랜딩페이지",
+    "대시보드 UI",
+    "디자인 업그레이드",
+    "토스 스타일",
+    "Linear 스타일",
+    "AI 슬롭 없애줘"
+  ],
+  "requirements": {
+    "python": ">=3.9"
+  }
+}
