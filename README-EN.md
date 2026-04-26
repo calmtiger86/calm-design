@@ -1,173 +1,157 @@
 # calm-design
 
-> **Premium designs that don't look AI-generated.** Korean-first but Korean-optional. A full-stack design agent skill.
+> **Premium designs that don't look AI-generated** — A Claude skill for refined, polished web design.
 
-[한국어 README](./README.md)
-
----
-
-## ☕ What is calm-design?
-
-LLM-based design tools tend to produce a recognizable "AI smell" — purple/blue gradients, Inter font, three equal cards in a row, "Elevate"/"Seamless" copy, pure black, neon glow shadows.
-
-`calm-design` **explicitly blocks** these patterns and outputs **calm, refined designs** instead. In Korean environments, it enforces Pretendard. After generating a design, it inspects its own output and regenerates to fix violations.
-
-### Combines 4 OSS strengths + 3 unique features
-
-| Feature | awesome-design-md | stitch-skills | taste-skill | supanova | **calm-design** |
-|---|:-:|:-:|:-:|:-:|:-:|
-| 9-section DESIGN.md standard | ✅ | ✅ | ⚠️ | ⚠️ | ✅ |
-| Prompt enhancement pipeline | ❌ | ✅ | ⚠️ | ⚠️ | ✅ |
-| AI tells block + alternatives | ❌ | ⚠️ | ✅ | ✅ | ✅ (extended) |
-| Dial parameters | ❌ | ❌ | 3-dial | 3-dial | **4-dial** |
-| Pre-Flight Checklist | ❌ | ❌ | ✅ | ⚠️ | ✅ (21 items) |
-| Korean typography standard | ❌ | ❌ | ❌ | ⚠️ | ✅ (deep) |
-| **Visual self-critique loop** | ❌ | ❌ | ❌ | ❌ | **✅** |
-| **Reference auto-matching** | ❌ | ❌ | ❌ | ❌ | **✅ (Phase 1+)** |
-| **Multi-Variant generation** | ❌ | ❌ | ❌ | ❌ | **✅ (Phase 2+)** |
+[한국어](./README.md)
 
 ---
 
-## 🚀 Quick Start
+## Why calm-design?
 
-### Install
+Ever generated a web design with AI? You can instantly tell it's AI-made.
 
-Anthropic Skills standard — works in:
-- Claude Cowork (Claude desktop app)
-- Claude Code (CLI)
-- Cursor, Codex and other SKILL.md-compatible AI coding agents
+**The usual AI design tells:**
+- Purple/blue gradient backgrounds
+- Three identical cards in a row
+- "Elevate Your Experience" clichés
+- Pure black (#000000)
+- Inter font everywhere
+
+calm-design **automatically detects and blocks these patterns**. Instead, it creates designs that look like Stripe, Linear, or Vercel — **refined and intentional**.
+
+---
+
+## What makes it different?
+
+### 1. 50+ "AI smell" patterns blocked automatically
+
+| Won't happen | Instead |
+|---|---|
+| Purple/blue gradients | Calm, muted backgrounds |
+| 3 equal cards in a row | Asymmetric bento grids |
+| Inter, Roboto fonts | **Geist, Cabinet Grotesk** (or Pretendard for Korean) |
+| Pure black #000000 | Soft charcoal #0A0A0A |
+| "Elevate", "Seamless" | Natural, specific copy |
+
+### 2. Self-critique loop
+
+Other AI tools just output and walk away. calm-design:
+1. Generates the design
+2. **Visually inspects** its own output (Vision AI)
+3. **Auto-fixes** any violations
+
+### 3. Reference library of 33 brands
+
+Request "Linear style" or "Stripe-like" and it references actual design systems:
+
+**Global (18):** Linear · Vercel · Stripe · Notion · Figma · Supabase · Raycast · Framer · Apple · Airbnb · Spotify · Tesla · BMW · Cursor · Superhuman · Cal.com · Mintlify · Replicate
+
+**Korean (15):** Toss · Karrot · Baemin · Kakao · Naver · Coupang · Kurly · Musinsa · Ohou · Class101 · Yanolja · Zigbang · 29CM · Line · Starbucks Korea
+
+---
+
+## Just say what you want
+
+```
+"Make me a landing page. Clean, Linear-style."
+```
+
+```
+"Design a dashboard. Lots of data to show."
+```
+
+```
+"Polish this code. Make it look less AI-generated."
+```
+
+```
+"Show me 3 different style options."
+```
+
+Your wording changes the output:
+- **"minimal"** → More whitespace, cleaner
+- **"trendy"** → Current design trends
+- **"data-heavy"** → High information density
+- **"calm"** → Less motion, more static
+
+---
+
+## See examples
+
+### Example 1: SaaS Dashboard
+
+**Request:** "B2B SaaS dashboard. Calm, data-dense."
+
+**Result:**
+- Sidebar + command search (⌘K)
+- Asymmetric KPI cards (2-1-1 layout)
+- Charts and activity feed
+- Emerald accent color
+
+→ [View code](./examples/01-saas-dashboard-ko/)
+
+### Example 2: Landing Page (Toss-inspired)
+
+**Request:** "AI video editing SaaS landing. Toss-style."
+
+**Result:**
+- Hero → Social proof → Bento features → CTA
+- Single blue accent
+- Generous whitespace
+
+→ [View code](./examples/02-landing-toss-style/)
+
+### Example 3: Design System Catalog
+
+**Request:** "Document this design's colors, fonts, and components."
+
+**Result:** Visual design system documentation (HTML)
+
+→ [View code](./examples/04-preview-catalog/)
+
+---
+
+## Installation
+
+### Claude Desktop (Cowork)
+
+Download this repo and place it in Claude's skills folder:
+
+```
+~/Library/Application Support/Claude/skills/calm-design
+```
+
+### Claude Code (Terminal)
 
 ```bash
-# Claude Code
-git clone https://github.com/min86k/calm-design .claude/skills/calm-design
-
-# Or via Skills CLI
-npx skills add https://github.com/min86k/calm-design
+git clone https://github.com/calmtiger86/calm-design .claude/skills/calm-design
 ```
 
-### First use
+---
 
-After installing, ask in natural language:
+## FAQ
 
-```
-"Make me a B2B SaaS dashboard. Calm tone, data-heavy."
-```
+**Q: Do I need to know how to code?**
 
-The skill automatically:
-1. **Infers dials**: VARIANCE=4, MOTION=4, DENSITY=7, LANGUAGE=auto→en
-2. **Generates 9-section DESIGN.md** → saved to `.calm-design/DESIGN.md`
-3. **Outputs HTML + Tailwind CDN** code (lucide, Motion One integrated)
-4. **Pre-Flight 21-item validation** + auto-regenerate until pass (max 3 retries)
-5. **Returns 4 deliverables**:
-   - DESIGN.md
-   - Code (HTML or React)
-   - Pre-Flight Report (✅/⚠️/❌)
-   - Dial summary one-liner
+No! Just describe what you want in natural language. Code is generated automatically and you can open it directly in your browser.
+
+**Q: Can I modify the generated design?**
+
+Absolutely. Just say "change this color" or "make the button bigger" and it will update.
+
+**Q: Does it work for non-English designs?**
+
+Yes. It's Korean-first by default (Pretendard font, Korean typography rules), but switches to English mode with appropriate fonts (Geist, etc.) when requested.
+
+**Q: Can I use it commercially?**
+
+Yes, MIT license. Use it freely.
 
 ---
 
-## 📐 4-Dial Parameters
+## License
 
-| Dial | Range | Default | Meaning |
-|---|---|---|---|
-| `DESIGN_VARIANCE` | 1–10 | 7 | 1=perfect symmetry, 10=asymmetric/artistic chaos |
-| `MOTION_INTENSITY` | 1–10 | 6 | 1=static, 10=cinematic spring physics |
-| `VISUAL_DENSITY` | 1–10 | 4 | 1=gallery-airy, 10=cockpit-dense |
-| `LANGUAGE` | `ko`/`en`/`auto` | **`ko`** | Korean-first (Pretendard, word-break: keep-all enforced) |
-
-**Natural-language dial control**: "more minimal", "more dynamic", "data-heavy", "trendy" auto-map to dial values.
-
----
-
-## 🎯 5 Modes
-
-| Mode | Trigger | Output | Status |
-|---|---|---|---|
-| **A. Generate** | "make me a design", "landing page" | DESIGN.md + code | ✅ |
-| **B. Upgrade** | "polish this", "improve" + existing code | Diff + new DESIGN.md | ✅ |
-| **C. Match-Reference** | "Toss style", "Linear-like" | Reference analysis + applied code | ✅ |
-| **D. Multi-Variant** | "3 options", "varied" | 3 different DESIGN.md + comparison | ✅ |
-| **JSON Spec** | "multiplatform", "web+mobile" | json-render format JSON | ✅ |
-
----
-
-## 🛡️ 50+ Anti-Slop Auto-Block
-
-calm-design auto-validates output and regenerates on detection:
-
-| Category | Blocked (examples) |
-|---|---|
-| Fonts | Inter, Noto Sans KR, Roboto, font-thin/extralight (Korean) |
-| Colors | Pure Black `#000000`, purple/blue AI gradients, saturation 80%+, multiple accents |
-| Layout | 3-column equal cards, centered hero (VARIANCE≥5), `h-screen`, missing max-width |
-| Copy | "Elevate", "Seamless", "Unleash", "John Doe", "Lorem ipsum", fabricated metrics |
-| Motion | linear easing, top/left/width/height animations, useState-based animations |
-
-Full 50+ list: [`references/ai-tells-blocklist.md`](./references/ai-tells-blocklist.md).
-
----
-
-## 🇰🇷 Korean-First (but Korean-optional)
-
-While `LANGUAGE=ko` is the default, calm-design fully supports English/global:
-
-- Set `LANGUAGE=en` or natural-language English input → switches to Geist/Cabinet Grotesk
-- All English mappings, anti-patterns, and references are bilingual
-- README, examples, contribution guides exist in both languages
-
----
-
-## 📦 8 Integrated Libraries
-
-[shadcn/ui](https://ui.shadcn.com) · [lucide](https://lucide.dev) · [zustand](https://github.com/pmndrs/zustand) · [Framer Motion](https://www.framer.com/motion) · [Tailwind CSS](https://tailwindcss.com) · [Pretendard](https://pretendard.dev) · [Radix UI](https://www.radix-ui.com) · [Motion One](https://motion.dev)
-
-Library policies are split per output engine. See [`library-policies/`](./library-policies/).
-
----
-
-## 🎨 Examples
-
-- [Korean B2B SaaS Dashboard](./examples/01-saas-dashboard-ko/)
-- [AI Video Editing SaaS Landing (Toss-style inspired)](./examples/02-landing-toss-style/)
-- [JSON Render Spec (Multiplatform)](./examples/03-json-render-spec/)
-- [Preview Catalog](./examples/04-preview-catalog/)
-- [Figma Export (Design Tokens)](./examples/05-figma-export/)
-
----
-
-## 🛠️ Roadmap
-
-| Phase | Scope | Status |
-|---|---|:-:|
-| **Phase 0 — MVP** | Mode A + HTML/React output + 30 anti-slop + self-critique (static analysis) | ✅ Done |
-| **Phase 1 — Self-Critique full visual** | Playwright integration, Vision full capture, 30 Pre-Flight items | ✅ Done |
-| **Phase 2 — Multi-Variant** | Mode D (3-variant generation) | ✅ Done |
-| **Phase 3 — Reference Library** | KR 15 + Global 18 = 33 curated brands + Mode B/C | ✅ Done |
-| **Phase 4 — Output Engine expansion** | preview-catalog + figma-export + json-render | ✅ Done |
-| Phase 5 — Public Launch | GitHub release, official site, video demo | 🟡 In Progress |
-
----
-
-## 📜 License
-
-MIT. See [LICENSE](./LICENSE).
-
-Reference library entries (Phase 3+) follow an "Inspired by" policy — no direct brand asset redistribution.
-
-## 🤝 Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md). Korean keyword mappings, new anti-patterns, reference library additions, and translations all welcome.
-
-## 🙏 Credits
-
-Built on top of insights from:
-
-- [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md)
-- [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills)
-- [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)
-- [uxjoseph/supanova-design-skill](https://github.com/uxjoseph/supanova-design-skill)
-
-And huge thanks to [Pretendard](https://github.com/orioncactus/pretendard) · [shadcn/ui](https://ui.shadcn.com) · [lucide](https://lucide.dev).
+MIT — Free for commercial use, modification, and redistribution.
 
 ---
 
