@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Validate Python scripts (--help check)
+        run: |
+          echo "=== Testing Python 스크립트 CLI 동작 ==="
+          python scripts/validate-design-md.py --help
+          python scripts/design-md-to-spec.py --help
+          python scripts/upgrade-diagnose.py --help
+          python scripts/apply-upgrade.py --help
+          python scripts/multi-variant.py --help
+          python scripts/build-preview-catalog.py --help
+          python scripts/design-md-to-figma.py --help
+          echo "✅ 모든 스크립트 CLI 검증 통과"
+
+      - name: Validate example DESIGN.md files
+        run: |
+          echo "=== DESIGN.md 검증 ==="
+          python scripts/validate-design-md.py examples/01-saas-dashboard-ko/DESIGN.md
+          python scripts/validate-design-md.py examples/02-landing-toss-style/DESIGN.md
+          python scripts/validate-design-md.py examples/04-preview-catalog/DESIGN.md
+          python scripts/validate-design-md.py examples/05-figma-export/DESIGN.md
+          echo "✅ 모든 DESIGN.md 검증 통과"
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint with ruff
+        run: ruff check scripts/ --ignore E501
+
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint Markdown files
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: |
+            README.md
+            README-EN.md
+            CONTRIBUTING.md
+          config: |
+            {
+              "MD013": false,
+              "MD033": false,
+              "MD041": false
+            }
