@@ -113,18 +113,45 @@ Your wording changes the output:
 
 ## Installation
 
-### Claude Desktop (Cowork)
+### Option 1: Use in all projects (global install)
 
-Download this repo and place it in Claude's skills folder:
-
-```
-~/Library/Application Support/Claude/skills/calm-design
-```
-
-### Claude Code (Terminal)
+Run these commands in your terminal:
 
 ```bash
-git clone https://github.com/calmtiger86/calm-design .claude/skills/calm-design
+# 1. Download the repository
+git clone https://github.com/calmtiger86/calm-design.git
+
+# 2. Copy to skills folder
+cp -r calm-design ~/.claude/skills/calm-design
+```
+
+Restart Claude Code and the skill will be available in all projects.
+
+### Option 2: Use in a specific project only
+
+Run these commands in your project folder:
+
+```bash
+# 1. Download the repository
+git clone https://github.com/calmtiger86/calm-design.git
+
+# 2. Copy to project's skills folder
+mkdir -p .claude/skills
+cp -r calm-design .claude/skills/calm-design
+```
+
+### Verify installation
+
+Ask Claude to confirm:
+
+```
+"Do you have the calm-design skill?"
+```
+
+Or just try it:
+
+```
+"Make me a landing page"
 ```
 
 ---
