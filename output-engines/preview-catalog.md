@@ -1,0 +1,262 @@
+# Output Engine: Preview Catalog (디자인 시스템 시각 카탈로그)
+
+> Phase 4 산출물. DESIGN.md → 디자인 시스템 시각 카탈로그 HTML 자동 생성.
+
+calm-design이 생성한 DESIGN.md의 모든 토큰(색상, 타이포, 컴포넌트 상태, 스페이싱, 그림자)을 **단일 HTML 페이지에 시각화**. 디자이너·개발자가 한눈에 디자인 시스템을 파악하고, WCAG contrast를 즉시 확인.
+
+## 1. 트리거 시그널
+
+다음 키워드 감지 시 이 출력 엔진 활성화:
+- "preview 카탈로그", "preview catalog"
+- "디자인 시스템 시각화", "design system visualization"
+- "토큰 프리뷰", "토큰 미리보기"
+- "스타일가이드 생성", "styleguide"
+
+## 2. 입력 / 출력
+
+| 구분 | 명세 |
+|------|------|
+| **입력** | DESIGN.md (calm-design 9-섹션 표준) |
+| **출력** | 단일 `preview-catalog.html` (Tailwind CDN + Pretendard) |
+| **자동화** | `python scripts/build-preview-catalog.py --design <path> --output <path>` |
+
+## 3. 카탈로그 섹션 (5개)
+
+### 3.1 Color Palette
+
+DESIGN.md Section 2에서 추출. 각 색상 견본:
+
+```
+┌─────────────────────────────────────┐
+│  ████████████████████               │ ← 색상 블록 (80x80px)
+│  Canvas                             │ ← 시맨틱 이름
+│  #FAFAFA                            │ ← Hex 코드 (클릭 복사)
+│  ✅ 19.36:1 AAA on Ink              │ ← WCAG contrast (배경/전경 자동 페어링)
+└─────────────────────────────────────┘
+```
+
+**WCAG 검증 자동화**:
+- Ink(전경) ↔ Canvas/Surface(배경) 페어 자동 계산
+- Accent ↔ Surface 페어 계산
+- 4.5:1 미만 시 ⚠️ 경고, 3.0:1 미만 시 ❌ 실패
+
+### 3.2 Typography Scale
+
+DESIGN.md Section 3에서 추출. 각 스케일 레벨:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Display / H1                                                │
+│ ─────────────────────────────────────────────────────────── │
+│                                                             │
+│ 차분한 디자인 시스템                                          │ ← 한국어 샘플 (LANGUAGE=ko)
+│                                                             │
+│ text-4xl md:text-5xl · tracking-tight · leading-tight       │ ← Tailwind 클래스
+│ font-size: 36px → 48px · line-height: 1.1                   │ ← 실제 값
+└─────────────────────────────────────────────────────────────┘
+```
+
+**한국어 환경**:
+- 샘플 텍스트: "차분한 디자인 시스템" (display), "안녕하세요, 반갑습니다" (body)
+- `word-break: keep-all` 적용 확인용
+
+### 3.3 Component States
+
+DESIGN.md Section 4에서 추출. 컴포넌트별 6상태 그리드:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│ Button (Primary)                                                        │
+├──────────┬──────────┬──────────┬──────────┬──────────┬──────────────────┤
+│ Default  │ Hover    │ Focus    │ Active   │ Disabled │ Loading          │
+│ ┌──────┐ │ ┌──────┐ │ ┌──────┐ │ ┌──────┐ │ ┌──────┐ │ ┌──────────────┐ │
+│ │ 확인 │ │ │ 확인 │ │ │ 확인 │ │ │ 확인 │ │ │ 확인 │ │ │ ⟳ 확인     │ │
+│ └──────┘ │ └──────┘ │ └──────┘ │ └──────┘ │ └──────┘ │ └──────────────┘ │
+└──────────┴──────────┴──────────┴──────────┴──────────┴──────────────────┘
+```
+
+**필수 컴포넌트**:
+- Button (Primary / Secondary / Ghost)
+- Input (Text / Search)
+- Card (Default / Interactive)
+
+**상태 누락 시**: ⚠️ "Disabled 상태 미정의" 경고 표시
+
+### 3.4 Spacing System
+
+DESIGN.md Section 5 Layout에서 추론. 표준 스케일 시각화:
+
+```
+4px   ▌
+8px   ██
+16px  ████████
+24px  ████████████
+32px  ████████████████
+48px  ████████████████████████
+64px  ████████████████████████████████
+```
+
+각 값 옆에 사용 예시: "4px — 아이콘-텍스트 간격", "24px — 카드 내부 패딩"
+
+### 3.5 Shadow Tokens
+
+DESIGN.md Section 6 Depth에서 추출:
+
+```
+┌─────────────────────────────────────┐
+│ shadow-sm                           │
+│ ┌───────────────────────────────┐   │
+│ │                               │   │ ← 실제 shadow 적용된 박스
+│ │       Card Example            │   │
+│ │                               │   │
+│ └───────────────────────────────┘   │
+│ 0 2px 8px rgba(0,0,0,0.04)          │ ← CSS 값
+└─────────────────────────────────────┘
+```
+
+## 4. HTML 골격 (표준 템플릿)
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System Preview — {프로젝트명}</title>
+
+  <!-- Pretendard (한국어 필수) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard Variable', 'Pretendard', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    .copy-hex { cursor: pointer; }
+    .copy-hex:hover { text-decoration: underline; }
+    .swatch { transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+    .swatch:hover { transform: scale(1.05); }
+  </style>
+</head>
+<body class="font-sans bg-zinc-50 text-zinc-900 antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-bold tracking-tight">Design System Preview</h1>
+      <span class="text-sm text-zinc-500">Generated by calm-design</span>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-12 space-y-16">
+
+    <!-- Section: Color Palette -->
+    <section id="colors">
+      <h2 class="text-2xl font-bold tracking-tight mb-8">Color Palette</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <!-- 동적 생성: 색상 카드 -->
+      </div>
+    </section>
+
+    <!-- Section: Typography Scale -->
+    <section id="typography">
+      <h2 class="text-2xl font-bold tracking-tight mb-8">Typography Scale</h2>
+      <div class="space-y-8">
+        <!-- 동적 생성: 타입 스케일 -->
+      </div>
+    </section>
+
+    <!-- Section: Component States -->
+    <section id="components">
+      <h2 class="text-2xl font-bold tracking-tight mb-8">Component States</h2>
+      <div class="space-y-12">
+        <!-- 동적 생성: 컴포넌트별 6상태 그리드 -->
+      </div>
+    </section>
+
+    <!-- Section: Spacing System -->
+    <section id="spacing">
+      <h2 class="text-2xl font-bold tracking-tight mb-8">Spacing System</h2>
+      <div class="space-y-4">
+        <!-- 동적 생성: 스페이싱 바 -->
+      </div>
+    </section>
+
+    <!-- Section: Shadow Tokens -->
+    <section id="shadows">
+      <h2 class="text-2xl font-bold tracking-tight mb-8">Shadow Tokens</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 동적 생성: 그림자 카드 -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-200 py-8 mt-16">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-zinc-500">
+      Generated by <a href="https://github.com/min86k/calm-design" class="underline">calm-design</a>
+    </div>
+  </footer>
+
+  <!-- Hex 복사 기능 -->
+  <script>
+    document.querySelectorAll('.copy-hex').forEach(el => {
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(el.dataset.hex);
+        el.textContent = 'Copied!';
+        setTimeout(() => { el.textContent = el.dataset.hex; }, 1000);
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
+
+## 5. 자동화 스크립트
+
+```bash
+# DESIGN.md → preview-catalog.html 변환
+python scripts/build-preview-catalog.py \
+  --design .calm-design/DESIGN.md \
+  --output preview-catalog.html
+
+# 옵션
+#   --language ko|en    언어 (기본: auto-detect from DESIGN.md)
+#   --no-contrast       WCAG contrast 계산 스킵
+```
+
+## 6. Pre-Flight 연동
+
+생성된 카탈로그는 `references/pre-flight-checklist.md` 30항목 중 다음을 자동 검증:
+
+- [C1] Pure Black 사용 여부 (Section 2 검사)
+- [C2] 단일 액센트 준수 (Section 2 검사)
+- [C3] WCAG AA contrast 4.5:1 (모든 페어 계산)
+- [T1] Pretendard 적용 (LANGUAGE=ko 시)
+- [A1] 6상태 정의 완전성 (Section 4 검사)
+
+위반 시 카탈로그 상단에 경고 배너 표시.
+
+## 7. 한계 및 Phase 4.1 예정
+
+| 현재 (Phase 4) | Phase 4.1 예정 |
+|----------------|----------------|
+| 5개 섹션 (정적) | + Motion Demos (인터랙티브) |
+| Hex 복사 | + RGB/HSL 변환 표시 |
+| 단일 HTML | + 다크모드 토글 |
+| 수동 실행 | + CI/CD 통합 가이드 |

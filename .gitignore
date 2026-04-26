@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
+.venv/
+venv/
+
+# Node
+node_modules/
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# 로컬 Claude/OMC 설정 (공개 불필요)
+.claude/
+.omc/
+
+# calm-design 런타임 산출물 (사용자 프로젝트의 .calm-design/ 디렉토리)
+.calm-design/
+
+# Playwright 캐시·캡처
+.calm-design/critique-shots/
+playwright-report/
+test-results/
+
+# 임시 빌드
+dist/
+build/
+.next/
+.cache/
+
+# 환경 변수 (ANTHROPIC_API_KEY 등)
+.env
+.env.local
+.env.*.local
+
+# 민감 파일 (보안 리뷰 권장)
+*.key
+*.pem
+credentials.*
+secrets.*
+*.secret
+.secrets/

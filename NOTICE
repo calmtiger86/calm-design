@@ -1,0 +1,121 @@
+calm-design — Korean-first AI design skill
+Copyright (c) 2026 정민 (@calmtiger_)
+Licensed under the MIT License.
+
+================================================================================
+THIRD-PARTY COMPONENTS
+================================================================================
+
+This project incorporates components from the following open-source projects.
+Each component remains under its original license. Their licenses are listed
+below for compliance and attribution.
+
+--------------------------------------------------------------------------------
+1. json-render
+   Source:    https://github.com/vercel-labs/json-render
+   Copyright: Vercel Labs and contributors
+   License:   Apache License, Version 2.0
+   URL:       https://www.apache.org/licenses/LICENSE-2.0
+
+   calm-design uses json-render's Spec format (output-engines/json-render-spec.md)
+   and integrates @json-render/core, @json-render/shadcn, and @json-render/react
+   as optional renderers. No source code is forked into this repository; the
+   integration is documentation-level only.
+
+--------------------------------------------------------------------------------
+2. Pretendard
+   Source:    https://github.com/orioncactus/pretendard
+   Copyright: 길형진 (orioncactus)
+   License:   SIL Open Font License 1.1
+
+   calm-design recommends Pretendard for Korean typography but does not
+   redistribute the font files. Users install Pretendard separately via CDN
+   or npm.
+
+--------------------------------------------------------------------------------
+3. shadcn/ui
+   Source:    https://github.com/shadcn-ui/ui
+   Copyright: shadcn and contributors
+   License:   MIT
+
+   calm-design's React mode references shadcn/ui as the primary component
+   library. No shadcn source code is forked; users install via npx shadcn add.
+
+--------------------------------------------------------------------------------
+4. Lucide
+   Source:    https://github.com/lucide-icons/lucide
+   Copyright: Lucide Contributors (originally Cole Bemis - Feather Icons)
+   License:   ISC License
+
+   calm-design recommends Lucide as the standard icon library.
+
+--------------------------------------------------------------------------------
+5. Framer Motion / motion
+   Source:    https://github.com/framer/motion
+   Copyright: Framer B.V.
+   License:   MIT
+
+   calm-design's React mode standardizes on Framer Motion for animation.
+
+--------------------------------------------------------------------------------
+6. Tailwind CSS
+   Source:    https://github.com/tailwindlabs/tailwindcss
+   Copyright: Tailwind Labs Inc.
+   License:   MIT
+
+   calm-design assumes Tailwind CSS as the base styling system.
+
+--------------------------------------------------------------------------------
+DESIGN INSPIRATION & PATTERN ATTRIBUTION
+--------------------------------------------------------------------------------
+
+calm-design's reference patterns, anti-slop blocklist, dial parameters, and
+9-section DESIGN.md format draw inspiration from the following open-source
+design skill projects. While calm-design's implementations are written
+independently and extended for Korean-first environments, the conceptual
+foundations are explicitly attributed below.
+
+--------------------------------------------------------------------------------
+7. awesome-design-md
+   Source:    https://github.com/VoltAgent/awesome-design-md
+   License:   MIT
+   Influence: 9-section DESIGN.md format originator. calm-design uses this
+              standard with adaptations (Section 7 'Motion' replaces 'Do's/Don'ts',
+              Section 9 'Anti-Patterns' replaces 'Agent Prompt Guide').
+              The reference-library/global/ directory imports 69 brand
+              DESIGN.md entries from this project (see Phase 3 README).
+
+--------------------------------------------------------------------------------
+8. taste-skill
+   Source:    https://github.com/Leonxlnx/taste-skill
+   License:   Public use (no formal license file)
+   Influence: Anti-slop philosophy, 3-dial parameter system (extended to 4 in
+              calm-design with LANGUAGE), Pre-Flight Checklist concept, and
+              Creative Arsenal pattern catalog. calm-design's 50-item
+              ai-tells-blocklist, 30-item Pre-Flight, and 50+ Creative Arsenal
+              expand on taste-skill's foundations.
+
+--------------------------------------------------------------------------------
+9. stitch-skills
+   Source:    https://github.com/google-labs-code/stitch-skills
+   Copyright: Google Labs and contributors
+   License:   Apache License, Version 2.0
+   Influence: Prompt enhancement 4-technique pipeline, design-md analysis
+              workflow, taste-design anti-slop principles, and workflow
+              routing patterns. calm-design's prompt-enhancement.md adapts
+              these techniques with Korean keyword mappings.
+
+--------------------------------------------------------------------------------
+10. supanova-design-skill
+    Source:    https://github.com/uxjoseph/supanova-design-skill
+    License:   Public use (no formal license file)
+    Influence: Korean typography enforcement (Pretendard mandatory,
+               word-break: keep-all), single-accent color policy, and the
+               $150k-agency quality bar. calm-design's typography-ko.md
+               extends supanova's policy with deeper line-height/tracking/
+               weight rules grounded in Korean SaaS observation.
+
+--------------------------------------------------------------------------------
+
+For questions about licensing or compliance, please open an issue at:
+https://github.com/min86k/calm-design

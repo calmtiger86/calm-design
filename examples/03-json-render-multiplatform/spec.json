@@ -1,0 +1,76 @@
+{
+  "root": "auth",
+  "elements": {
+    "auth": {
+      "type": "AuthCard",
+      "props": {
+        "title": "로그인"
+      },
+      "children": [
+        "email-input",
+        "password-input",
+        "submit"
+      ]
+    },
+    "email-input": {
+      "type": "TossInput",
+      "props": {
+        "label": "이메일",
+        "type": "email"
+      }
+    },
+    "password-input": {
+      "type": "TossInput",
+      "props": {
+        "label": "비밀번호",
+        "type": "password"
+      }
+    },
+    "submit": {
+      "type": "TossPrimaryButton",
+      "props": {
+        "label": "로그인"
+      }
+    }
+  },
+  "state": {
+    "theme": {
+      "atmosphere": "차분한 핀테크 인증 화면. 토스 톤 영감. 충분한 호흡감, 단일 Toss Blue 액센트, 모바일·데스크톱·PDF·이메일 모두 동일 비주얼 언어. 사용자가 \"어떤 플랫폼에 있든 같은 신뢰감\"을 느끼도록.",
+      "language": "ko",
+      "colors": {
+        "canvas": "#FAFAFA",
+        "surface": "#FFFFFF",
+        "ink": "#191F28",
+        "mute": "#8B95A1",
+        "border": "#E5E8EB",
+        "accent": "#3182F6",
+        "danger": "#EF4444"
+      },
+      "typography": {
+        "breakKeep": true,
+        "fontFamily": "'Pretendard Variable', Pretendard, system-ui, sans-serif"
+      },
+      "motion": {
+        "ease": [
+          0.16,
+          1,
+          0.3,
+          1
+        ],
+        "duration": 0.6,
+        "respectsReducedMotion": true
+      },
+      "dials": {
+        "variance": 3,
+        "motion": 3,
+        "density": 3
+      }
+    },
+    "_meta": {
+      "generatedBy": "calm-design",
+      "designMd": true,
+      "mode": "A",
+      "pageType": "auth"
+    }
+  }
+}

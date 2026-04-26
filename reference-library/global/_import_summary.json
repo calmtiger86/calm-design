@@ -1,0 +1,30 @@
+{
+  "total_brands_in_repo": 59,
+  "imported": 5,
+  "failed": [],
+  "succeeded": [
+    {
+      "brand": "airbnb",
+      "note": "stub 저장 (0/9 섹션만 검출)"
+    },
+    {
+      "brand": "airtable",
+      "note": "stub 저장 (0/9 섹션만 검출)"
+    },
+    {
+      "brand": "apple",
+      "note": "stub 저장 (0/9 섹션만 검출)"
+    },
+    {
+      "brand": "bmw",
+      "note": "stub 저장 (0/9 섹션만 검출)"
+    },
+    {
+      "brand": "cal",
+      "note": "stub 저장 (0/9 섹션만 검출)"
+    }
+  ],
+  "source_repo": "https://github.com/VoltAgent/awesome-design-md",
+  "source_license": "MIT",
+  "imported_by": "calm-design / scripts/awesome-design-md-import.py"
+}

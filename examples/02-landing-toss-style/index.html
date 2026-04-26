@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cutter — 영상 편집을 더 쉽게</title>
+  <meta name="description" content="AI 영상 편집 SaaS. calm-design Toss 스타일 영감 랜딩페이지 예시.">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard Variable', 'Pretendard', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink: '#191F28',
+            mute: '#8B95A1',
+            accent: '#3182F6',
+            'accent-soft': '#E8F3FF',
+          },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import { animate, stagger, inView } from "https://cdn.jsdelivr.net/npm/motion@10/+esm";
+    window.motion = { animate, stagger, inView };
+  </script>
+
+  <style>
+    h1, h2, h3, h4, h5, h6, p, li, dt, dd { word-break: keep-all; overflow-wrap: break-word; }
+    .tabular { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="font-sans bg-white text-ink antialiased">
+
+<!-- 1. Nav -->
+<nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-bold text-lg">cutter</a>
+    <div class="hidden md:flex gap-8 text-sm font-medium text-mute">
+      <a href="#features" class="hover:text-ink">기능</a>
+      <a href="#pricing" class="hover:text-ink">가격</a>
+      <a href="#faq" class="hover:text-ink">자주 묻는 질문</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#login" class="hidden md:block text-sm font-medium text-mute hover:text-ink">로그인</a>
+      <a href="#cta" class="rounded-full bg-accent text-white px-5 py-2 text-sm font-semibold hover:scale-[1.02] transition-transform">시작하기</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 2. Hero (Split 60/40) -->
+<section class="py-20 md:py-28 lg:py-36">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-12 gap-10 items-center">
+    <div class="md:col-span-7 motion-fade-up">
+      <span class="inline-block bg-accent-soft text-accent text-xs font-semibold px-3 py-1.5 rounded-full">새 버전 출시</span>
+      <h1 class="mt-5 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+        영상 편집을<br/>
+        <span class="text-accent">10배 빠르게</span>
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-mute leading-relaxed max-w-[55ch]">
+        AI가 자르고, 자막 달고, 음악을 골라 줍니다. 당신은 이야기에만 집중하면 됩니다.
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row gap-3">
+        <a href="#" class="rounded-full bg-accent text-white px-7 py-3.5 font-semibold text-base hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300 inline-flex items-center justify-center gap-2">
+          무료로 시작하기
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#" class="rounded-full bg-zinc-50 border border-zinc-200 text-ink px-7 py-3.5 font-semibold text-base hover:bg-zinc-100 inline-flex items-center justify-center gap-2">
+          <i data-lucide="play" class="w-4 h-4"></i>
+          데모 보기
+        </a>
+      </div>
+      <p class="mt-4 text-sm text-mute">신용카드 없이 14일 체험</p>
+    </div>
+    <div class="md:col-span-5 motion-fade-up" style="animation-delay: 200ms">
+      <div class="rounded-3xl bg-zinc-50 border border-zinc-200 aspect-[4/5] overflow-hidden shadow-[0_8px_40px_rgba(49,130,246,0.08)]">
+        <img src="https://picsum.photos/seed/cutter-hero/600/750" alt="cutter 앱 미리보기" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Social Proof -->
+<section class="py-12 border-y border-zinc-100 bg-zinc-50">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <p class="text-center text-sm text-mute mb-6">한국의 크리에이터 <span class="tabular font-semibold text-ink">12,847</span>명이 사용 중</p>
+    <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 opacity-60">
+      <span class="font-bold text-lg">스튜디오랩</span>
+      <span class="font-bold text-lg">픽셀하우스</span>
+      <span class="font-bold text-lg">크리에이터스</span>
+      <span class="font-bold text-lg">메이커스튜디오</span>
+      <span class="font-bold text-lg">컷어웨이</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Features (Bento Grid 비대칭) -->
+<section id="features" class="py-24 md:py-32">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="max-w-2xl motion-fade-up">
+      <span class="text-sm font-semibold text-accent">기능</span>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+        편집의 가장 귀찮은 일을<br/>AI에게 맡기세요
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-fr">
+      <!-- 큰 카드 (col-span-2 row-span-2) -->
+      <div class="md:col-span-2 md:row-span-2 bg-zinc-50 rounded-3xl border border-zinc-200 p-8 md:p-10 motion-fade-up">
+        <div class="w-12 h-12 rounded-2xl bg-accent-soft flex items-center justify-center">
+          <i data-lucide="wand-sparkles" class="w-6 h-6 text-accent"></i>
+        </div>
+        <h3 class="mt-6 text-2xl md:text-3xl font-bold tracking-tight">
+          한 번의 클릭으로<br/>완성되는 편집
+        </h3>
+        <p class="mt-4 text-base text-mute leading-relaxed max-w-[40ch]">
+          긴 원본을 올리면 AI가 핵심만 골라 짧고 매력적인 클립을 만듭니다. 컷·자막·BGM까지 한 번에.
+        </p>
+        <div class="mt-8">
+          <img src="https://picsum.photos/seed/feature-ai/700/360" alt="AI 자동 편집 화면" class="rounded-2xl border border-zinc-200" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 작은 카드 1 -->
+      <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
+          <i data-lucide="captions" class="w-5 h-5 text-emerald-600"></i>
+        </div>
+        <h3 class="mt-5 text-lg font-semibold tracking-tight">자동 자막</h3>
+        <p class="mt-2 text-sm text-mute leading-relaxed">한국어·영어 정확도 98%. 스타일도 자동 매칭.</p>
+      </div>
+
+      <!-- 작은 카드 2 -->
+      <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+        <div class="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center">
+          <i data-lucide="music" class="w-5 h-5 text-amber-600"></i>
+        </div>
+        <h3 class="mt-5 text-lg font-semibold tracking-tight">AI BGM 추천</h3>
+        <p class="mt-2 text-sm text-mute leading-relaxed">분위기에 맞춰 저작권 걱정 없는 음악을 골라줍니다.</p>
+      </div>
+
+      <!-- 작은 카드 3 -->
+      <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+        <div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center">
+          <i data-lucide="image" class="w-5 h-5 text-purple-600"></i>
+        </div>
+        <h3 class="mt-5 text-lg font-semibold tracking-tight">스마트 썸네일</h3>
+        <p class="mt-2 text-sm text-mute leading-relaxed">클릭률 높은 순간을 자동 추출해 썸네일로.</p>
+      </div>
+
+      <!-- 작은 카드 4 -->
+      <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+        <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center">
+          <i data-lucide="share-2" class="w-5 h-5 text-rose-600"></i>
+        </div>
+        <h3 class="mt-5 text-lg font-semibold tracking-tight">바로 발행</h3>
+        <p class="mt-2 text-sm text-mute leading-relaxed">유튜브·인스타·틱톡으로 한 번에 업로드.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CTA Banner -->
+<section id="cta" class="py-24 md:py-32 bg-zinc-50">
+  <div class="max-w-3xl mx-auto px-4 md:px-6 text-center motion-fade-up">
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+      이제 영상을<br/>이야기로 바꿀 시간이에요
+    </h2>
+    <p class="mt-4 text-base md:text-lg text-mute leading-relaxed">
+      14일 무료 체험. 신용카드 등록 필요 없습니다.
+    </p>
+    <a href="#" class="mt-8 inline-flex items-center gap-2 rounded-full bg-accent text-white px-7 py-3.5 font-semibold text-base hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
+      지금 시작하기 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+  </div>
+</section>
+
+<!-- 6. Footer Minimal -->
+<footer class="py-12 border-t border-zinc-200">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <span class="font-bold">cutter</span>
+    <p class="text-sm text-mute">© 2026 cutter. calm-design 예시.</p>
+    <div class="flex gap-4 text-sm text-mute">
+      <a href="#" class="hover:text-ink">이용약관</a>
+      <a href="#" class="hover:text-ink">개인정보</a>
+      <a href="#" class="hover:text-ink">문의</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  const elements = document.querySelectorAll('.motion-fade-up');
+  elements.forEach((el, i) => {
+    window.motion.inView(el, () => {
+      window.motion.animate(el,
+        { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0)'] },
+        { duration: 0.6, delay: i * 0.05, easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.3 });
+  });
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

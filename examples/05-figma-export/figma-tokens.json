@@ -1,0 +1,196 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$metadata": {
+    "name": "calm-design 기본 톤",
+    "language": "ko",
+    "generator": "calm-design"
+  },
+  "color": {
+    "canvas": {
+      "$value": "#FAFAFA",
+      "$type": "color",
+      "$description": "페이지 배경 (Zinc-50)"
+    },
+    "surface": {
+      "$value": "#FFFFFF",
+      "$type": "color",
+      "$description": "카드·시트 배경"
+    },
+    "ink": {
+      "$value": "#0A0A0A",
+      "$type": "color",
+      "$description": "본문·헤드라인 (Off-Black, Pure Black 절대 X)"
+    },
+    "mute": {
+      "$value": "#71717A",
+      "$type": "color",
+      "$description": "보조 텍스트 (Zinc-500)"
+    },
+    "border": {
+      "$value": "#E4E4E7",
+      "$type": "color",
+      "$description": "1px 분할선 (Zinc-200)"
+    },
+    "accent": {
+      "$value": "#10B981",
+      "$type": "color",
+      "$description": "단일 액센트 — Emerald-500, calm-design 시그니처"
+    },
+    "success": {
+      "$value": "#22C55E",
+      "$type": "color",
+      "$description": "성공·완료 (Green-500)"
+    },
+    "danger": {
+      "$value": "#EF4444",
+      "$type": "color",
+      "$description": "오류·삭제 (Red-500)"
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "sans": {
+        "$value": "'Pretendard Variable', Pretendard, system-ui, sans-serif",
+        "$type": "fontFamily"
+      }
+    },
+    "fontSize": {
+      "xs": {
+        "$value": "12px",
+        "$type": "dimension"
+      },
+      "sm": {
+        "$value": "14px",
+        "$type": "dimension"
+      },
+      "base": {
+        "$value": "16px",
+        "$type": "dimension"
+      },
+      "lg": {
+        "$value": "18px",
+        "$type": "dimension"
+      },
+      "xl": {
+        "$value": "20px",
+        "$type": "dimension"
+      },
+      "2xl": {
+        "$value": "24px",
+        "$type": "dimension"
+      },
+      "3xl": {
+        "$value": "30px",
+        "$type": "dimension"
+      },
+      "4xl": {
+        "$value": "36px",
+        "$type": "dimension"
+      },
+      "5xl": {
+        "$value": "48px",
+        "$type": "dimension"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$value": "1.1",
+        "$type": "number"
+      },
+      "snug": {
+        "$value": "1.25",
+        "$type": "number"
+      },
+      "normal": {
+        "$value": "1.5",
+        "$type": "number"
+      },
+      "relaxed": {
+        "$value": "1.625",
+        "$type": "number"
+      }
+    }
+  },
+  "spacing": {
+    "1": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "2": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "3": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "4": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "6": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "8": {
+      "$value": "32px",
+      "$type": "dimension"
+    },
+    "12": {
+      "$value": "48px",
+      "$type": "dimension"
+    },
+    "16": {
+      "$value": "64px",
+      "$type": "dimension"
+    }
+  },
+  "borderRadius": {
+    "sm": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "md": {
+      "$value": "8px",
+      "$type": "dimension"
+    },
+    "lg": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "xl": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "2xl": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "dimension"
+    }
+  },
+  "shadow": {
+    "custom_0": {
+      "$value": {
+        "offsetX": "0",
+        "offsetY": "2px",
+        "blur": "8px",
+        "spread": "0",
+        "color": "rgba(0,0,0,0.04)"
+      },
+      "$type": "shadow"
+    },
+    "sm": {
+      "$value": {
+        "offsetX": "0",
+        "offsetY": "1px",
+        "blur": "2px",
+        "spread": "0",
+        "color": "rgba(0,0,0,0.05)"
+      },
+      "$type": "shadow"
+    }
+  }
+}

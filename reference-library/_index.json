@@ -1,0 +1,154 @@
+{
+  "$schema_version": "1.1",
+  "description": "calm-design 레퍼런스 라이브러리 매칭 인덱스. Mode C(Match-Reference)가 사용자 의도→브랜드 자동 매칭에 사용.",
+  "license_policy": {
+    "global": "Inspired by VoltAgent/awesome-design-md (MIT). 풀 DESIGN.md는 npx getdesign@latest add {brand} 또는 https://getdesign.md/{brand}/design-md 에서 사용자가 다운로드 후 calm-design이 9-섹션 표준으로 변환.",
+    "korean": "calm-design 자체 작성. 'Inspired by' 정책 — 공개 디자인 시스템 관찰 기반, 직접 복제 X.",
+    "phase_status": "글로벌 59개는 메타데이터만 인덱스 + 핵심 5개 자체 풀 작성. 한국 15개 메타 + 핵심 8개 자체 풀 작성."
+  },
+  "categories": {
+    "ai_llm": {
+      "label": "AI & LLM 플랫폼",
+      "tags": ["ai", "llm", "generative", "chat", "voice", "image", "video"],
+      "scenarios": ["AI 제품", "Claude 풍", "OpenAI 풍", "음성·오디오·영상 AI"]
+    },
+    "dev_tools": {
+      "label": "개발자 도구·IDE",
+      "tags": ["dev", "ide", "terminal", "editor", "tool", "agent"],
+      "scenarios": ["개발자용 SaaS", "IDE/에디터", "키보드-first", "AI 에이전트"]
+    },
+    "backend_devops": {
+      "label": "백엔드·DB·DevOps·인프라",
+      "tags": ["database", "infrastructure", "devops", "monitoring", "analytics", "cms", "email"],
+      "scenarios": ["인프라 콘솔", "DB UI", "로그·모니터링", "이메일·CMS"]
+    },
+    "saas_productivity": {
+      "label": "생산성·SaaS",
+      "tags": ["saas", "productivity", "collaboration", "doc", "calendar", "automation"],
+      "scenarios": ["B2B SaaS", "생산성 도구", "협업 툴", "Linear 풍"]
+    },
+    "design_creative": {
+      "label": "디자인·크리에이티브",
+      "tags": ["design", "creative", "canvas", "media", "no-code"],
+      "scenarios": ["디자인 도구", "크리에이터 SaaS", "노코드"]
+    },
+    "fintech": {
+      "label": "핀테크·암호화·뱅킹",
+      "tags": ["finance", "crypto", "payment", "trust", "neobank"],
+      "scenarios": ["핀테크", "결제·송금", "암호화폐", "토스 풍", "네오뱅크"]
+    },
+    "ecommerce": {
+      "label": "E-commerce·마켓플레이스",
+      "tags": ["commerce", "retail", "marketplace", "travel"],
+      "scenarios": ["이커머스", "마켓플레이스", "여행·숙박"]
+    },
+    "media_consumer": {
+      "label": "미디어·소비자 기술·모빌리티",
+      "tags": ["media", "music", "social", "consumer", "mobility"],
+      "scenarios": ["콘텐츠 플랫폼", "음악·영상", "소셜 미디어", "모빌리티"]
+    },
+    "automotive": {
+      "label": "자동차·모빌리티 럭셔리",
+      "tags": ["automotive", "luxury", "vehicle"],
+      "scenarios": ["럭셔리·자동차", "고급 톤"]
+    },
+    "korean_saas": {
+      "label": "한국 SaaS",
+      "tags": ["korean", "ko", "korea"],
+      "scenarios": ["한국 환경 SaaS", "Pretendard 강제", "토스 풍", "당근 풍", "네이버 풍"]
+    }
+  },
+  "global_brands": [
+    {"slug": "claude", "name": "Claude", "category": "ai_llm", "summary": "Anthropic AI assistant. Warm terracotta accent, clean editorial layout."},
+    {"slug": "cohere", "name": "Cohere", "category": "ai_llm", "summary": "Enterprise LLM platform. Refined editorial tone."},
+    {"slug": "elevenlabs", "name": "ElevenLabs", "category": "ai_llm", "summary": "Voice AI. Studio-grade interface."},
+    {"slug": "minimax", "name": "MiniMax", "category": "ai_llm", "summary": "Multimodal AI from China. Dark, futuristic, gradient accents."},
+    {"slug": "mistral.ai", "name": "Mistral", "category": "ai_llm", "summary": "Open-weight LLM. Minimal French editorial."},
+    {"slug": "ollama", "name": "Ollama", "category": "ai_llm", "summary": "Local LLM runtime. Mascot-driven friendly tech tone."},
+    {"slug": "opencode.ai", "name": "OpenCode", "category": "ai_llm", "summary": "Open-source coding AI. Terminal-inspired UI."},
+    {"slug": "replicate", "name": "Replicate", "category": "ai_llm", "summary": "AI model hosting. Black/white minimalism, mono accents.", "design_full": "global/replicate/DESIGN.md"},
+    {"slug": "runwayml", "name": "Runway", "category": "ai_llm", "summary": "AI video/creative. Cinematic dark UI, generative aesthetic."},
+    {"slug": "together.ai", "name": "Together AI", "category": "ai_llm", "summary": "Inference platform. Technical, dense data UI."},
+    {"slug": "x.ai", "name": "xAI", "category": "ai_llm", "summary": "Grok platform. Stark black, technical precision."},
+    {"slug": "cursor", "name": "Cursor", "category": "dev_tools", "summary": "AI-native code editor. Dark, dense, keyboard-first.", "design_full": "global/cursor/DESIGN.md"},
+    {"slug": "expo", "name": "Expo", "category": "dev_tools", "summary": "React Native dev. Friendly, expressive UI."},
+    {"slug": "lovable", "name": "Lovable", "category": "dev_tools", "summary": "AI app builder. Vibrant, generative aesthetic."},
+    {"slug": "raycast", "name": "Raycast", "category": "dev_tools", "summary": "Mac launcher. Minimal command UI, ⌘K everywhere.", "design_full": "global/raycast/DESIGN.md"},
+    {"slug": "superhuman", "name": "Superhuman", "category": "dev_tools", "summary": "Premium email. Keyboard-first, dense, polished.", "design_full": "global/superhuman/DESIGN.md"},
+    {"slug": "voltagent", "name": "VoltAgent", "category": "dev_tools", "summary": "AI agent framework. Cyan accent, technical brand tone."},
+    {"slug": "warp", "name": "Warp", "category": "dev_tools", "summary": "Modern terminal. Dark, polished, AI-powered."},
+    {"slug": "webflow", "name": "Webflow", "category": "dev_tools", "summary": "No-code web. Refined SaaS UI, dense feature surface."},
+    {"slug": "clickhouse", "name": "ClickHouse", "category": "backend_devops", "summary": "Analytics DB. Data-dense, cool tone."},
+    {"slug": "composio", "name": "Composio", "category": "backend_devops", "summary": "Tool integrations. Developer-focused."},
+    {"slug": "hashicorp", "name": "HashiCorp", "category": "backend_devops", "summary": "Infrastructure. Trusted enterprise tone."},
+    {"slug": "mongodb", "name": "MongoDB", "category": "backend_devops", "summary": "Document DB. Forest green accent, technical."},
+    {"slug": "posthog", "name": "PostHog", "category": "backend_devops", "summary": "Product analytics. Hedgehog mascot, playful technical."},
+    {"slug": "resend", "name": "Resend", "category": "backend_devops", "summary": "Email API. Clean black/white, refined typography."},
+    {"slug": "sanity", "name": "Sanity", "category": "backend_devops", "summary": "Headless CMS. Editorial dark UI, content-first.", "design_full": "global/sanity/DESIGN.md"},
+    {"slug": "sentry", "name": "Sentry", "category": "backend_devops", "summary": "Error tracking. Purple accent, dense data."},
+    {"slug": "supabase", "name": "Supabase", "category": "backend_devops", "summary": "Open Firebase. Emerald accent, dark mode primary.", "design_full": "global/supabase/DESIGN.md"},
+    {"slug": "vercel", "name": "Vercel", "category": "backend_devops", "summary": "Frontend cloud. Black/white minimalism, geometric.", "design_full": "global/vercel/DESIGN.md"},
+    {"slug": "cal", "name": "Cal.com", "category": "saas_productivity", "summary": "Open Calendly. Refined SaaS UI.", "design_full": "global/cal/DESIGN.md"},
+    {"slug": "intercom", "name": "Intercom", "category": "saas_productivity", "summary": "Customer messaging. Warm purple accent."},
+    {"slug": "linear.app", "name": "Linear", "category": "saas_productivity", "summary": "Project mgmt. Ultra-minimal, purple accent, keyboard-first.", "design_full": "global/linear/DESIGN.md"},
+    {"slug": "mintlify", "name": "Mintlify", "category": "saas_productivity", "summary": "Docs platform. Editorial, polished.", "design_full": "global/mintlify/DESIGN.md"},
+    {"slug": "notion", "name": "Notion", "category": "saas_productivity", "summary": "All-in-one workspace. Soft gray, editorial.", "design_full": "global/notion/DESIGN.md"},
+    {"slug": "semrush", "name": "Semrush", "category": "saas_productivity", "summary": "SEO platform. Dense data UI, orange accent."},
+    {"slug": "uber", "name": "Uber", "category": "saas_productivity", "summary": "Mobility super-app. Black/white, geometric, system-grade."},
+    {"slug": "zapier", "name": "Zapier", "category": "saas_productivity", "summary": "Automation. Orange accent, friendly tech tone."},
+    {"slug": "airtable", "name": "Airtable", "category": "design_creative", "summary": "Database with UI. Vibrant, multi-color blocks."},
+    {"slug": "clay", "name": "Clay", "category": "design_creative", "summary": "GTM data platform. Premium SaaS."},
+    {"slug": "figma", "name": "Figma", "category": "design_creative", "summary": "Design tool. Multi-color accent, professional.", "design_full": "global/figma/DESIGN.md"},
+    {"slug": "framer", "name": "Framer", "category": "design_creative", "summary": "Web design. Bold, gradients, motion-rich.", "design_full": "global/framer/DESIGN.md"},
+    {"slug": "miro", "name": "Miro", "category": "design_creative", "summary": "Collaborative whiteboard. Yellow accent, playful."},
+    {"slug": "coinbase", "name": "Coinbase", "category": "fintech", "summary": "Crypto. Blue/black, trust-focused."},
+    {"slug": "kraken", "name": "Kraken", "category": "fintech", "summary": "Crypto exchange. Purple accent, professional."},
+    {"slug": "revolut", "name": "Revolut", "category": "fintech", "summary": "Neobank. Dark, sleek, premium."},
+    {"slug": "stripe", "name": "Stripe", "category": "fintech", "summary": "Payments. Signature purple gradients, weight-300 elegance.", "design_full": "global/stripe/DESIGN.md"},
+    {"slug": "wise", "name": "Wise", "category": "fintech", "summary": "International transfer. Bright green, friendly fintech."},
+    {"slug": "airbnb", "name": "Airbnb", "category": "ecommerce", "summary": "Travel marketplace. Warm coral accent, photography-driven, rounded UI.", "design_full": "global/airbnb/DESIGN.md"},
+    {"slug": "apple", "name": "Apple", "category": "media_consumer", "summary": "Premium tech. Whitespace mastery, San Francisco font.", "design_full": "global/apple/DESIGN.md"},
+    {"slug": "ibm", "name": "IBM", "category": "media_consumer", "summary": "Enterprise. Blue, geometric, IBM Plex font."},
+    {"slug": "nvidia", "name": "NVIDIA", "category": "media_consumer", "summary": "GPU/AI. Green accent, technical."},
+    {"slug": "pinterest", "name": "Pinterest", "category": "media_consumer", "summary": "Visual discovery. Masonry, red accent."},
+    {"slug": "spacex", "name": "SpaceX", "category": "media_consumer", "summary": "Aerospace. Stark black/white, full-bleed imagery, futuristic."},
+    {"slug": "spotify", "name": "Spotify", "category": "media_consumer", "summary": "Music streaming. Green accent, dark, dense cards.", "design_full": "global/spotify/DESIGN.md"},
+    {"slug": "bmw", "name": "BMW", "category": "automotive", "summary": "German luxury. Blue accent, geometric."},
+    {"slug": "ferrari", "name": "Ferrari", "category": "automotive", "summary": "Italian sports. Red accent, racing heritage."},
+    {"slug": "lamborghini", "name": "Lamborghini", "category": "automotive", "summary": "Sports. Yellow/black, aggressive geometric."},
+    {"slug": "renault", "name": "Renault", "category": "automotive", "summary": "French automotive. Yellow/black brand, modern industrial."},
+    {"slug": "tesla", "name": "Tesla", "category": "automotive", "summary": "EV. Black/white, futuristic, minimal chrome.", "design_full": "global/tesla/DESIGN.md"}
+  ],
+  "korean_brands": [
+    {"slug": "toss", "name": "토스 (Toss)", "category": "korean_saas", "summary": "한국 핀테크. Toss Blue 단일 액센트, Pretendard, Bottom Sheet, Floating Label, 차분한 신뢰 톤.", "design_full": "korean/toss/DESIGN.md", "signature_patterns": ["TossBottomSheet", "TossInput", "TossPrimaryButton"], "scenarios": ["핀테크 앱", "결제·송금 흐름", "한국 B2C 신뢰"]},
+    {"slug": "kakao", "name": "카카오 (Kakao)", "category": "korean_saas", "summary": "메시징·플랫폼. 카카오 노란색, 채팅 버블, 친근 톤.", "design_full": "korean/kakao/DESIGN.md", "signature_patterns": ["KakaoChatBubble"], "scenarios": ["채팅·메시징", "콘텐츠 큐레이션", "친근 톤"]},
+    {"slug": "daangn", "name": "당근 (Daangn)", "category": "korean_saas", "summary": "로컬 마켓플레이스. 당근 오렌지, 추천 가로 스크롤 카드, 친근 카피.", "design_full": "korean/daangn/DESIGN.md", "signature_patterns": ["DaangnRecommendCarousel"], "scenarios": ["로컬 마켓", "C2C 거래", "친근 한국어 톤"]},
+    {"slug": "naver", "name": "네이버 (Naver)", "category": "korean_saas", "summary": "포털. 검색·콘텐츠·실시간 인기. 정보 밀도·검색 자동완성 시그니처.", "design_full": "korean/naver/DESIGN.md", "signature_patterns": ["NaverSearchSuggest"], "scenarios": ["포털·검색", "콘텐츠 허브", "정보 밀도 UI"]},
+    {"slug": "line", "name": "라인 (LINE)", "category": "korean_saas", "summary": "메시징. 스티커·반응 시그니처. 일본·한국 친근 톤.", "design_full": "korean/line/DESIGN.md", "signature_patterns": ["LineReactionPicker"], "scenarios": ["메시징·소셜", "스티커 반응 UI"]},
+    {"slug": "musinsa", "name": "무신사 (Musinsa)", "category": "korean_saas", "summary": "패션 이커머스. Filter Sidebar 시그니처, 정통 한국 패션 톤.", "design_full": "korean/musinsa/DESIGN.md", "signature_patterns": ["MusinsaFilterSidebar"], "scenarios": ["패션 이커머스", "카탈로그 + 필터"]},
+    {"slug": "kurly", "name": "컬리 (Kurly)", "category": "korean_saas", "summary": "프리미엄 식품. 보라색 액센트. Phase 3.5 자체 작성.", "design_full": "korean/kurly/DESIGN.md", "scenarios": ["프리미엄 이커머스", "식품·신선"]},
+    {"slug": "baemin", "name": "배달의민족", "category": "korean_saas", "summary": "음식 배달. 친근·유머·B급 감성 한국 시그니처.", "design_full": "korean/baemin/DESIGN.md", "scenarios": ["배달·음식", "친근 한국어 톤"]},
+    {"slug": "coupang", "name": "쿠팡 (Coupang)", "category": "korean_saas", "summary": "이커머스. 빠른 배송·로켓 강조, 정보 밀도 높음, 빨강 액센트.", "design_full": "korean/coupang/DESIGN.md", "scenarios": ["이커머스", "정보 밀도 UI", "긴급감 카피"]},
+    {"slug": "yanolja", "name": "야놀자", "category": "korean_saas", "summary": "여행·숙박. 따뜻한 핑크 액센트, 큰 숙소 사진 카드, 평점·리뷰.", "design_full": "korean/yanolja/DESIGN.md", "scenarios": ["여행·숙박", "큰 이미지 카드"]},
+    {"slug": "29cm", "name": "29CM", "category": "korean_saas", "summary": "셀렉트 커머스 + 에디토리얼 매거진 톤. 모노크롬, 큰 사진, 큐레이션.", "design_full": "korean/29cm/DESIGN.md", "scenarios": ["셀렉트 커머스", "에디토리얼 매거진"]},
+    {"slug": "ohou", "name": "오늘의집", "category": "korean_saas", "summary": "홈리빙 인스피레이션. 베이지·우드 톤, 사용자 집사진 그리드, 청록 액센트.", "design_full": "korean/ohou/DESIGN.md", "scenarios": ["홈리빙", "인스피레이션 피드", "랜선집들이"]},
+    {"slug": "zigbang", "name": "직방", "category": "korean_saas", "summary": "부동산 검색. 직방 파랑, 지도 통합, 정보 밀도 매물 카드.", "design_full": "korean/zigbang/DESIGN.md", "scenarios": ["부동산", "지도 + 매물 검색"]},
+    {"slug": "class101", "name": "클래스101", "category": "korean_saas", "summary": "온라인 클래스. 핑크 액센트, 영상 썸네일 카드, 라이브 펄스.", "design_full": "korean/class101/DESIGN.md", "scenarios": ["온라인 교육", "영상 콘텐츠 + 키트"]},
+    {"slug": "starbucks_kr", "name": "스타벅스코리아", "category": "korean_saas", "summary": "현지화 디자인. 그린 시그니처, 사이렌오더 워크플로우, 한·영 병기.", "design_full": "korean/starbucks_kr/DESIGN.md", "scenarios": ["F&B 앱", "사이렌오더", "리워드·별"]}
+  ],
+  "matching_algorithm": {
+    "description": "사용자 의도 → 브랜드 자동 매칭. Mode C(Match-Reference)가 사용.",
+    "step_1_intent_extraction": "사용자 입력에서 키워드 추출",
+    "step_2_direct_slug_match": "정확한 brand 이름 + '처럼/스타일/풍' → 100점",
+    "step_3_category_weight": "categories[].tags + scenarios 매칭, 일치 1개당 +5점",
+    "step_4_korean_bonus": "LANGUAGE=ko면 korean_saas 카테고리 +10",
+    "step_5_top_3": "최종 후보 3개 사용자에게 제시",
+    "fallback": "매칭 0점 시 Linear, Vercel, Stripe 글로벌 톱 3"
+  },
+  "phase_status": {
+    "phase_3_completed": "메타 인덱스 (글로벌 59 + 한국 15) + 풀 작성 (한국 3: toss/kakao/daangn)",
+    "phase_3_completed_2": "글로벌 풀 작성 6 (linear/vercel/stripe/notion/apple/tesla) + 한국 풀 작성 5 (naver/line/musinsa/kurly/baemin)",
+    "phase_3_5_completed": "한국 7개 추가 풀 작성 (coupang/yanolja/29cm/ohou/zigbang/class101/starbucks_kr) — 한국 15 모두 풀 DESIGN.md 보유",
+    "phase_3_6_pending": "글로벌 풀 작성 확장 (Cursor/Supabase/Figma/Notion-style 등 — Phase 4 이후 사용자 요청 시)"
+  }
+}

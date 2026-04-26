@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>한국 B2B SaaS 대시보드 — calm-design 예시</title>
+  <meta name="description" content="calm-design 스킬이 생성한 차분한 한국 B2B SaaS 대시보드 예시">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Pretendard Variable', 'Pretendard', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink: '#0A0A0A',
+            mute: '#71717A',
+            accent: '#10B981',
+          },
+        },
+      },
+    };
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script type="module">
+    import { animate, stagger, inView } from "https://cdn.jsdelivr.net/npm/motion@10/+esm";
+    window.motion = { animate, stagger, inView };
+  </script>
+
+  <style>
+    h1, h2, h3, h4, h5, h6, p, li, dt, dd {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .tabular { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="font-sans bg-zinc-50 text-ink antialiased">
+
+<div class="min-h-[100dvh] flex">
+  <!-- Sidebar -->
+  <aside class="hidden md:flex w-60 shrink-0 flex-col border-r border-zinc-200 bg-white">
+    <div class="h-16 flex items-center px-6 border-b border-zinc-200">
+      <span class="font-bold text-lg">calm.io</span>
+    </div>
+    <nav class="flex-1 p-4 space-y-1">
+      <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium bg-zinc-100 text-ink">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i> 대시보드
+      </a>
+      <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-mute hover:bg-zinc-50">
+        <i data-lucide="users" class="w-4 h-4"></i> 사용자
+      </a>
+      <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-mute hover:bg-zinc-50">
+        <i data-lucide="bar-chart-3" class="w-4 h-4"></i> 분석
+      </a>
+      <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-mute hover:bg-zinc-50">
+        <i data-lucide="credit-card" class="w-4 h-4"></i> 결제
+      </a>
+      <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-mute hover:bg-zinc-50">
+        <i data-lucide="settings" class="w-4 h-4"></i> 설정
+      </a>
+    </nav>
+    <div class="p-4 border-t border-zinc-200">
+      <div class="flex items-center gap-3">
+        <img src="https://i.pravatar.cc/40?u=minseo" alt="김민서 프로필" class="w-8 h-8 rounded-full" />
+        <div class="flex-1 min-w-0">
+          <p class="text-sm font-medium truncate">김민서</p>
+          <p class="text-xs text-mute truncate">관리자</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex-1 flex flex-col min-w-0">
+    <!-- Top Bar -->
+    <header class="sticky top-0 z-30 h-16 flex items-center gap-4 px-4 md:px-6 bg-white/80 backdrop-blur-md border-b border-zinc-200">
+      <button class="md:hidden p-2 -ml-2" aria-label="메뉴 열기"><i data-lucide="menu" class="w-5 h-5"></i></button>
+      <div class="flex-1 max-w-md">
+        <label for="topbar-search" class="sr-only">검색</label>
+        <div class="relative">
+          <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-mute" aria-hidden="true"></i>
+          <input id="topbar-search" type="search" class="w-full h-9 pl-10 pr-12 rounded-md bg-zinc-100 text-sm placeholder:text-mute focus:outline-none focus:bg-white focus:ring-2 focus:ring-accent/20 focus:border focus:border-accent" placeholder="검색..." aria-label="검색" />
+          <kbd class="hidden md:block absolute right-2 top-1/2 -translate-y-1/2 text-xs text-mute bg-white px-1.5 py-0.5 rounded border border-zinc-200" aria-hidden="true">⌘K</kbd>
+        </div>
+      </div>
+      <button class="relative p-2 rounded-md hover:bg-zinc-100" aria-label="알림">
+        <i data-lucide="bell" class="w-5 h-5" aria-hidden="true"></i>
+        <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-accent" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <!-- Page Content -->
+    <main class="flex-1 p-4 md:p-6 lg:p-8">
+      <!-- Page Header -->
+      <div class="flex items-end justify-between mb-8 motion-fade-up">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight leading-tight">대시보드</h1>
+          <p class="mt-1 text-sm text-mute">2026년 4월 25일 기준</p>
+        </div>
+        <button class="rounded-full bg-accent text-white px-5 py-2 text-sm font-semibold flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300">
+          <i data-lucide="plus" class="w-4 h-4"></i> 새로 만들기
+        </button>
+      </div>
+
+      <!-- KPI Bento Grid (비대칭 2-1-1) -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+        <div class="md:col-span-2 bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+          <p class="text-xs font-medium tracking-wide text-mute uppercase">월 매출</p>
+          <p class="mt-3 text-3xl font-semibold tabular">₩12,847,000</p>
+          <p class="mt-2 text-xs flex items-center gap-1 text-emerald-600">
+            <i data-lucide="trending-up" class="w-3.5 h-3.5"></i>
+            <span class="tabular">12.4%</span> <span class="text-mute">전월 대비</span>
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+          <p class="text-xs font-medium tracking-wide text-mute uppercase">활성 사용자</p>
+          <p class="mt-3 text-3xl font-semibold tabular">8,431</p>
+          <p class="mt-2 text-xs text-mute">주간 평균</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+          <p class="text-xs font-medium tracking-wide text-mute uppercase">전환율</p>
+          <p class="mt-3 text-3xl font-semibold tabular">3.2%</p>
+          <p class="mt-2 text-xs flex items-center gap-1 text-red-600">
+            <i data-lucide="trending-down" class="w-3.5 h-3.5"></i>
+            <span class="tabular">0.4%p</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Main Section: Chart + Recent Activity -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Chart -->
+        <div class="lg:col-span-2 bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h2 class="text-base font-semibold tracking-tight">매출 추이</h2>
+              <p class="mt-1 text-xs text-mute">최근 30일</p>
+            </div>
+            <div class="flex gap-1 text-xs">
+              <button class="px-3 py-1 rounded-md bg-zinc-100 font-medium">30일</button>
+              <button class="px-3 py-1 rounded-md text-mute hover:bg-zinc-50">90일</button>
+              <button class="px-3 py-1 rounded-md text-mute hover:bg-zinc-50">1년</button>
+            </div>
+          </div>
+          <!-- Chart placeholder (실제는 chart.js 등) -->
+          <div class="h-64 flex items-end gap-1 border-b border-zinc-100">
+            <!-- 간단한 bar chart mock -->
+            <div class="flex-1 bg-emerald-100 rounded-t" style="height: 40%"></div>
+            <div class="flex-1 bg-emerald-200 rounded-t" style="height: 55%"></div>
+            <div class="flex-1 bg-emerald-300 rounded-t" style="height: 50%"></div>
+            <div class="flex-1 bg-emerald-400 rounded-t" style="height: 70%"></div>
+            <div class="flex-1 bg-emerald-500 rounded-t" style="height: 85%"></div>
+            <div class="flex-1 bg-emerald-500 rounded-t" style="height: 75%"></div>
+            <div class="flex-1 bg-emerald-500 rounded-t" style="height: 95%"></div>
+          </div>
+          <div class="flex justify-between mt-2 text-xs text-mute tabular">
+            <span>4/19</span><span>4/21</span><span>4/23</span><span>4/25</span>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="bg-white rounded-2xl border border-zinc-200 p-6 motion-fade-up">
+          <h2 class="text-base font-semibold tracking-tight mb-4">최근 활동</h2>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
+                <i data-lucide="user-plus" class="w-4 h-4 text-emerald-600"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm">박지호님이 가입했습니다</p>
+                <p class="text-xs text-mute mt-0.5">5분 전</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                <i data-lucide="credit-card" class="w-4 h-4 text-zinc-600"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm">결제 완료 — Pro 플랜</p>
+                <p class="text-xs text-mute mt-0.5">1시간 전</p>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <div class="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center shrink-0">
+                <i data-lucide="message-square" class="w-4 h-4 text-zinc-600"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm">새 문의 접수</p>
+                <p class="text-xs text-mute mt-0.5">2시간 전</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script type="module">
+  // Stagger fade-up
+  const elements = document.querySelectorAll('.motion-fade-up');
+  elements.forEach((el, i) => {
+    window.motion.inView(el, () => {
+      window.motion.animate(el,
+        { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] },
+        { duration: 0.6, delay: i * 0.05, easing: [0.16, 1, 0.3, 1] }
+      );
+    }, { amount: 0.3 });
+  });
+
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
