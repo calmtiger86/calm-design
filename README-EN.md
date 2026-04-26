@@ -80,6 +80,8 @@ Your wording changes the output:
 
 ### Example 1: SaaS Dashboard
 
+![SaaS Dashboard](./screenshots/01-saas-dashboard.png)
+
 **Request:** "B2B SaaS dashboard. Calm, data-dense."
 
 **Result:**
@@ -92,6 +94,8 @@ Your wording changes the output:
 
 ### Example 2: Landing Page (Toss-inspired)
 
+![Landing Page](./screenshots/02-landing-toss-style.png)
+
 **Request:** "AI video editing SaaS landing. Toss-style."
 
 **Result:**
@@ -103,11 +107,32 @@ Your wording changes the output:
 
 ### Example 3: Design System Catalog
 
+![Design System Catalog](./screenshots/03-preview-catalog.png)
+
 **Request:** "Document this design's colors, fonts, and components."
 
 **Result:** Visual design system documentation (HTML)
 
 → [View code](./examples/04-preview-catalog/)
+
+### Example 4: React Dashboard (shadcn + zustand)
+
+**Request:** "Build a dashboard in React. Production code."
+
+**Result:** Next.js 14 + shadcn/ui + zustand + Framer Motion integration
+- shadcn Button (with loading state)
+- zustand for sidebar state management
+- Framer Motion entry animations
+- lucide-react icons
+
+→ [View code](./examples/05-react-dashboard/)
+
+```bash
+# How to run
+cd examples/05-react-dashboard
+npm install
+npm run dev
+```
 
 ---
 
