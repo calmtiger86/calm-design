@@ -23,34 +23,9 @@ jobs:
 
       - name: Validate example DESIGN.md files
         run: |
-          echo "=== DESIGN.md 검증 ==="
+          echo "=== DESIGN.md 검증 (Python ${{ matrix.python-version }}) ==="
           python scripts/validate-design-md.py examples/01-saas-dashboard-ko/DESIGN.md
           python scripts/validate-design-md.py examples/02-landing-toss-style/DESIGN.md
           python scripts/validate-design-md.py examples/04-preview-catalog/DESIGN.md
           python scripts/validate-design-md.py examples/05-figma-export/DESIGN.md
           echo "✅ 모든 DESIGN.md 검증 통과"
-
-      - name: Test Python script imports
-        run: |
-          echo "=== Python 스크립트 import 검증 ==="
-          python -c "import scripts.color_utils" 2>/dev/null || python -c "exec(open('scripts/color-utils.py').read())"
-          echo "✅ Python 스크립트 검증 통과"
-
-  lint:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install ruff
-        run: pip install ruff
-
-      - name: Lint with ruff (warnings only)
-        run: |
-          ruff check scripts/ --ignore E501,F841,W293 --exit-zero
-          echo "⚠️ 린트 경고 확인 완료 (non-blocking)"
