@@ -1,0 +1,12 @@
+{
+  "name": "calm-design",
+  "description": "AI가 만든 티 안 나는 프리미엄 디자인 스킬",
+  "author": "calmtiger",
+  "plugins": [
+    {
+      "name": "calm-design",
+      "source": "github:calmtiger86/calm-design",
+      "description": "50+ 안티-슬롭 자동 차단, 33개 브랜드 레퍼런스, 한국어 1순위"
+    }
+  ]
+}
