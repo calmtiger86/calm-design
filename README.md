@@ -214,15 +214,6 @@ cp -r calm-design .claude/skills/calm-design
 
 ---
 
-## AI를 업무에 쓰고 있다면
-
-디자인처럼 AI 도구도 **무엇이 달라졌고, 내 업무에 어떤 의미가 있는지** 판단하는 일이 더 어렵습니다.
-[Ultrathink](https://ai-morning-report-landing.vercel.app/?utm_source=github&utm_medium=readme&utm_campaign=calm_design_14d)는 비개발자가 알아야 할 AI 변화만 골라 매일 아침 5분 분량으로 정리합니다.
-
-→ [뉴스레터 미리보기 및 구독하기](https://ai-morning-report-landing.vercel.app/?utm_source=github&utm_medium=readme&utm_campaign=calm_design_14d)
-
----
-
 ## 라이선스
 
 MIT — 상업적 사용, 수정, 재배포 모두 자유롭습니다.
